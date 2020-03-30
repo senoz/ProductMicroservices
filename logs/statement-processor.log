@@ -1,0 +1,155 @@
+2020-03-30 15:32:18,610 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 3472 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 15:32:18,677 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 15:32:23,317 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 15:32:23,319 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 15:32:23,855 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 15:32:24,691 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 15:32:24,887 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 15:32:25,300 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 15:32:25,934 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 15:32:26,333 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 15:32:26,387 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 15:32:28,057 [main] INFO com.zaxxer.hikari.HikariDataSource close - HikariPool-1 - Shutdown initiated...
+2020-03-30 15:32:28,095 [main] INFO com.zaxxer.hikari.HikariDataSource close - HikariPool-1 - Shutdown completed.
+2020-03-30 15:32:28,099 [main] INFO org.apache.catalina.core.StandardService log - Stopping service [Tomcat]
+2020-03-30 15:32:28,130 [main] ERROR org.springframework.boot.SpringApplication reportFailure - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [id] in table [grocery.categories]; found [int (Types#INTEGER)], but expecting [bigint (Types#BIGINT)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.supermart.grocery.BuynfreshApplication.main(BuynfreshApplication.java:10)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [id] in table [grocery.categories]; found [int (Types#INTEGER)], but expecting [bigint (Types#BIGINT)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:403)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	... 16 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [id] in table [grocery.categories]; found [int (Types#INTEGER)], but expecting [bigint (Types#BIGINT)]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateColumnType(AbstractSchemaValidator.java:159)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:143)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:89)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:68)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	... 20 common frames omitted
+2020-03-30 15:34:27,329 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 3776 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 15:34:27,341 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 15:34:31,519 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 15:34:31,519 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 15:34:31,887 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 15:34:32,364 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 15:34:32,539 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 15:34:32,865 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 15:34:33,341 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 15:34:33,702 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 15:34:33,753 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 15:34:35,352 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 15:34:37,677 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 11.752 seconds (JVM running for 12.815)
+2020-03-30 15:35:28,513 [http-nio-9001-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:40:17,468 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 3176 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 15:40:17,468 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 15:40:21,279 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 15:40:21,279 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 15:40:21,673 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 15:40:22,196 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 15:40:22,413 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 15:40:22,737 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 15:40:23,179 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 15:40:23,643 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 15:40:23,716 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 15:40:25,667 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 15:40:27,988 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 12.246 seconds (JVM running for 13.093)
+2020-03-30 15:40:36,164 [http-nio-9001-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 15:49:28,235 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 3832 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 15:49:28,246 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 15:49:32,429 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 15:49:32,430 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 15:49:32,761 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 15:49:33,239 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 15:49:33,436 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 15:49:33,741 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 15:49:34,130 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 15:49:34,502 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 15:49:34,553 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 15:49:36,199 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 15:49:38,463 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 11.577 seconds (JVM running for 12.5)
+2020-03-30 15:49:53,990 [http-nio-9001-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 18:34:29,644 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 5440 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 18:34:29,653 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 18:34:33,842 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 18:34:33,843 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 18:34:34,123 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 18:34:34,525 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 18:34:34,729 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 18:34:35,122 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 18:34:35,626 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 18:34:38,699 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 18:34:38,763 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 18:34:41,498 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 18:34:44,177 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 16.222 seconds (JVM running for 17.278)
+2020-03-30 18:35:05,673 [http-nio-9001-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 18:38:17,906 [http-nio-9001-exec-4] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - SQL Error: 1048, SQLState: 23000
+2020-03-30 18:38:17,907 [http-nio-9001-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - Column 'DESCRIPTION' cannot be null
+2020-03-30 18:38:17,920 [http-nio-9001-exec-4] ERROR com.supermart.grocery.globalexceptions.GlobalExceptionHandler handle - Error:: null
+2020-03-30 18:53:11,546 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 4920 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 18:53:11,557 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 18:53:15,899 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 18:53:15,900 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 18:53:16,292 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 18:53:16,725 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 18:53:16,894 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 18:53:17,236 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 18:53:17,724 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 18:53:18,134 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 18:53:18,250 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 18:53:20,160 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 18:53:22,594 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 12.391 seconds (JVM running for 13.282)
+2020-03-30 18:53:23,083 [http-nio-9001-exec-8] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 18:53:31,499 [http-nio-9001-exec-1] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - SQL Error: 1048, SQLState: 23000
+2020-03-30 18:53:31,500 [http-nio-9001-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - Column 'NAME' cannot be null
+2020-03-30 18:53:31,527 [http-nio-9001-exec-1] ERROR com.supermart.grocery.globalexceptions.GlobalExceptionHandler handle - Error:: null
+2020-03-30 18:53:35,194 [http-nio-9001-exec-3] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - SQL Error: 1048, SQLState: 23000
+2020-03-30 18:53:35,194 [http-nio-9001-exec-3] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - Column 'NAME' cannot be null
+2020-03-30 18:53:35,200 [http-nio-9001-exec-3] ERROR com.supermart.grocery.globalexceptions.GlobalExceptionHandler handle - Error:: null
+2020-03-30 19:53:46,957 [main] INFO com.supermart.grocery.BuynfreshApplication logStarting - Starting BuynfreshApplication on admin-PC with PID 6212 (D:\wokrspace\Java\grocery\target\classes started by admin in D:\wokrspace\Java\grocery)
+2020-03-30 19:53:46,968 [main] INFO com.supermart.grocery.BuynfreshApplication logStartupProfileInfo - No active profile set, falling back to default profiles: default
+2020-03-30 19:53:51,015 [main] INFO org.apache.catalina.core.StandardService log - Starting service [Tomcat]
+2020-03-30 19:53:51,015 [main] INFO org.apache.catalina.core.StandardEngine log - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-03-30 19:53:51,298 [main] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring embedded WebApplicationContext
+2020-03-30 19:53:51,759 [main] INFO org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-30 19:53:51,960 [main] INFO org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-03-30 19:53:52,281 [main] INFO org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-30 19:53:52,727 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Starting...
+2020-03-30 19:53:53,098 [main] INFO com.zaxxer.hikari.HikariDataSource getConnection - HikariPool-1 - Start completed.
+2020-03-30 19:53:53,151 [main] INFO org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2020-03-30 19:53:54,785 [main] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-30 19:53:56,901 [main] INFO com.supermart.grocery.BuynfreshApplication logStarted - Started BuynfreshApplication in 11.584 seconds (JVM running for 12.544)
+2020-03-30 19:54:18,023 [http-nio-9001-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] log - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-30 19:54:27,877 [http-nio-9001-exec-6] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - SQL Error: 1048, SQLState: 23000
+2020-03-30 19:54:27,878 [http-nio-9001-exec-6] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - Column 'NAME' cannot be null
+2020-03-30 19:54:27,902 [http-nio-9001-exec-6] ERROR com.supermart.grocery.globalexceptions.GlobalExceptionHandler handle - Error:: null
+2020-03-30 19:54:31,378 [http-nio-9001-exec-8] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - SQL Error: 1048, SQLState: 23000
+2020-03-30 19:54:31,379 [http-nio-9001-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions - Column 'NAME' cannot be null
+2020-03-30 19:54:31,381 [http-nio-9001-exec-8] ERROR com.supermart.grocery.globalexceptions.GlobalExceptionHandler handle - Error:: null
+2020-03-30 19:58:50,535 [HikariPool-1 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool run - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m4s574ms565µs507ns).
